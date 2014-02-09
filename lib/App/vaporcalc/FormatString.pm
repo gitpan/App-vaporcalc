@@ -1,5 +1,5 @@
 package App::vaporcalc::FormatString;
-$App::vaporcalc::FormatString::VERSION = '0.001002';
+$App::vaporcalc::FormatString::VERSION = '0.001003';
 use Defaults::Modern;
 
 use parent 'Exporter::Tiny';

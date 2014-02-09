@@ -1,8 +1,8 @@
 package App::vaporcalc::Role::Store;
-$App::vaporcalc::Role::Store::VERSION = '0.001002';
+$App::vaporcalc::Role::Store::VERSION = '0.001003';
 use Defaults::Modern;
 
-use JSON::MaybeXS ();
+use JSON::MaybeXS 1.001 ();
 
 use Role::Tiny;
 

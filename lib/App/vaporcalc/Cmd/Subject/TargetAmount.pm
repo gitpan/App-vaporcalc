@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::TargetAmount;
-$App::vaporcalc::Cmd::Subject::TargetAmount::VERSION = '0.001002';
+$App::vaporcalc::Cmd::Subject::TargetAmount::VERSION = '0.001003';
 use Defaults::Modern;
 
 use Moo; use MooX::late;

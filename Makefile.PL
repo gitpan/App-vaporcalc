@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Defaults::Modern" => "0.007",
     "Exporter::Tiny" => 0,
-    "JSON::MaybeXS" => 0,
+    "JSON::MaybeXS" => "1.001",
     "Term::ANSIColor" => 4,
     "Term::ReadLine" => 0,
     "Term::UI" => 0,
@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.001002",
+  "VERSION" => "0.001003",
   "test" => {
     "TESTS" => "t/*.t t/lib/*.t t/lib/cmd/subject/*.t t/role/*.t t/role/ui/*.t"
   }
@@ -44,7 +44,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Defaults::Modern" => "0.007",
   "Exporter::Tiny" => 0,
-  "JSON::MaybeXS" => 0,
+  "JSON::MaybeXS" => "1.001",
   "Term::ANSIColor" => 4,
   "Term::ReadLine" => 0,
   "Term::UI" => 0,

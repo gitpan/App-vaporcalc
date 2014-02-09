@@ -33,7 +33,7 @@
          "requires" : {
             "Defaults::Modern" : "0.007",
             "Exporter::Tiny" : "0",
-            "JSON::MaybeXS" : "0",
+            "JSON::MaybeXS" : "1.001",
             "Term::ANSIColor" : "4",
             "Term::ReadLine" : "0",
             "Term::UI" : "0",
@@ -58,6 +58,6 @@
          "web" : "http://github.com/avenj/app-vaporcalc"
       }
    },
-   "version" : "0.001002"
+   "version" : "0.001003"
 }
 

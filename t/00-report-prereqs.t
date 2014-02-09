@@ -62,7 +62,7 @@ my $static_prereqs = do { my $x = {
                       'requires' => {
                                       'Defaults::Modern' => '0.007',
                                       'Exporter::Tiny' => '0',
-                                      'JSON::MaybeXS' => '0',
+                                      'JSON::MaybeXS' => '1.001',
                                       'Term::ANSIColor' => '4',
                                       'Term::ReadLine' => '0',
                                       'Term::UI' => '0',

@@ -16,11 +16,11 @@ name: App-vaporcalc
 requires:
   Defaults::Modern: 0.007
   Exporter::Tiny: 0
-  JSON::MaybeXS: 0
+  JSON::MaybeXS: 1.001
   Term::ANSIColor: 4
   Term::ReadLine: 0
   Term::UI: 0
   Throwable: 0.2
 resources:
   repository: git://github.com/avenj/app-vaporcalc.git
-version: 0.001002
+version: 0.001003
