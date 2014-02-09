@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::NicType;
-$App::vaporcalc::Cmd::Subject::NicType::VERSION = '0.001001';
+$App::vaporcalc::Cmd::Subject::NicType::VERSION = '0.001002';
 use Defaults::Modern;
 
 use Moo; use MooX::late;

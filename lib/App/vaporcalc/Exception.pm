@@ -1,5 +1,5 @@
 package App::vaporcalc::Exception;
-$App::vaporcalc::Exception::VERSION = '0.001001';
+$App::vaporcalc::Exception::VERSION = '0.001002';
 use Defaults::Modern;
 
 use Moo; use MooX::late;

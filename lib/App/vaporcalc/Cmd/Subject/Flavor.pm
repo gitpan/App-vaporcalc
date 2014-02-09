@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Flavor;
-$App::vaporcalc::Cmd::Subject::Flavor::VERSION = '0.001001';
+$App::vaporcalc::Cmd::Subject::Flavor::VERSION = '0.001002';
 use Defaults::Modern;
 
 use Moo; use MooX::late;

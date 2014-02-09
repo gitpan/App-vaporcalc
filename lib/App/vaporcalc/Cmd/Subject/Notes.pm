@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Notes;
-$App::vaporcalc::Cmd::Subject::Notes::VERSION = '0.001001';
+$App::vaporcalc::Cmd::Subject::Notes::VERSION = '0.001002';
 use Defaults::Modern;
 
 use Moo; use MooX::late;
@@ -14,7 +14,9 @@ method _action_view {
   my $n = 0;
   my $str = " -> notes:\n";
   if ($self->recipe->notes->has_any) {
-     $str .= $self->recipe->notes->map(sub { $n++ .' - '. $_ })->join("\n")
+    $str .= $self->recipe->notes->map(sub { $n++ .' - '. $_ })->join("\n")
+  } else {
+    $str .= 'none'
   }
   $str
 }
