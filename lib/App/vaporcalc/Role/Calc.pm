@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::Calc;
-$App::vaporcalc::Role::Calc::VERSION = '0.001003';
+$App::vaporcalc::Role::Calc::VERSION = '0.001004';
 use Defaults::Modern;
 
 use App::vaporcalc::Result;

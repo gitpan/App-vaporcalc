@@ -40,10 +40,11 @@ fun getopts { state $argv = hash(%$Opts)->inflate }
 
 fun format_resultset (RecipeResultSet $rset) {
   state $tmpl = <<'EOT';
- --> %target_quantity ml  (%target_pg%/%target_vg% PG/VG)
-  base nic: %base_nic_per_ml mg/ml -- %base_nic_type%
-  target nic: %target_nic_per_ml mg/ml
-  flavor percentage: %flavor_percentage -- %flavor_type
+ --> target amount: %target_quantity ml
+  pg: %target_pg %  vg: %target_vg %
+  nic base: %base_nic_per_ml mg/ml  nic type: %base_nic_type%
+  nic target: %target_nic_per_ml mg/ml
+  flavor: %flavor_percentage %  flavor type: %flavor_type
   notes: %notes
  =>
   vg: [%vg ml]  pg: [%pg ml]  nic base: [%nic ml]  flavor: [%flavor ml]
@@ -100,6 +101,7 @@ $outfh->autoflush(1);
 
 
 $outfh->say('Welcome to App::vaporcalc!');
+$outfh->say("Try '@{[ colorify yellow => 'help' ]}' for usage details.");
 
 my $cmdeng = App::vaporcalc::CmdEngine->new;
 my $recipe = App::vaporcalc::Recipe->new(
@@ -118,7 +120,7 @@ PROMPT: while (1) {
 
   my $input = $term->get_reply(
     prompt  => $prompt,
-    default => 'help'
+    default => 'calc'
   );
 
   next PROMPT unless $input;
@@ -135,34 +137,51 @@ PROMPT: while (1) {
     undef
   } or next PROMPT;
 
-  RESULT: {
-    my $cmd_result = try {
-      $cmdeng->prepare_cmd(
-        subject => $parsed->subject,
-        verb    => $parsed->verb,
-        params  => $parsed->params,
-        recipe  => $recipe,
-      )->execute
-    } catch {
-      $outfh->say( format_error(">> Cmd err: $_") );
-      undef
-    } or next PROMPT;
+  my $cmd_result = try {
+    $cmdeng->prepare_cmd(
+      subject => $parsed->subject,
+      verb    => $parsed->verb,
+      params  => $parsed->params,
+      recipe  => $recipe,
+    )->execute
+  } catch {
+    $outfh->say( format_error(">> Cmd err: $_") );
+    undef
+  } or next PROMPT;
 
+  RESULT: {
     if (is_RecipeObject $cmd_result) {
-      $recipe = $cmd_result
-    } elsif (is_RecipeResultSet $cmd_result) {
-      # RecipeResultSet came back, format and display it:
-      print format_resultset($cmd_result)
-    } elsif (is_Str $cmd_result) {
-      # String came back, print it:
+      $recipe = $cmd_result;
+      last RESULT
+    }
+    
+    if (is_RecipeResultSet $cmd_result) {
+      print format_resultset($cmd_result);
+      last RESULT
+    }
+    
+    if (is_Str $cmd_result) {
       $outfh->say( colorify yellow => $cmd_result );
-    } elsif ( is_ArrayObj($cmd_result) || is_ArrayRef($cmd_result) ) {
+      last RESULT
+    } 
+    
+    if ( is_ArrayObj($cmd_result) || is_ArrayRef($cmd_result) ) {
       # Feeding back an ARRAY controls the input loop:
       last PROMPT 
         if $cmd_result->[0] eq 'exit' 
         or $cmd_result->[0] eq 'quit';
+
       next PROMPT 
         if $cmd_result->[0] eq 'next';
+
+      if ($cmd_result->[0] eq 'recipe') {
+        # [ $recipe, $str_to_display ]
+        confess "Expected 'recipe' to come with a recipe obj and a string"
+          unless is_RecipeObject $cmd_result->[1]
+          and    is_Str          $cmd_result->[2];
+        ($recipe, $cmd_result) = @$cmd_result;
+        redo RESULT
+      }
 
       if ($cmd_result->[0] eq 'prompt') {
         confess "Expected 'prompt' to come with a prompt string"
@@ -174,10 +193,10 @@ PROMPT: while (1) {
         $cmd_result = $cmd_result->[2]->($reply);
         redo RESULT
       }
-    } else {
-      confess "BUG; unknown cmd return value $cmd_result"
+
     }
 
+    confess "BUG; unable to handle cmd retval $cmd_result"
   } # RESULT
 }
 

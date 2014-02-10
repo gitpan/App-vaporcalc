@@ -1,5 +1,5 @@
 package App::vaporcalc::Types;
-$App::vaporcalc::Types::VERSION = '0.001003';
+$App::vaporcalc::Types::VERSION = '0.001004';
 use strict; use warnings FATAL => 'all';
 
 use Type::Library   -base;

@@ -7,7 +7,6 @@ META.yml
 Makefile.PL
 README
 README.mkdn
-TODO
 bin/vaporcalc
 dist.ini
 lib/App/vaporcalc.pm
@@ -34,7 +33,8 @@ lib/App/vaporcalc/Role/UI/Cmd.pm
 lib/App/vaporcalc/Role/UI/ParseCmd.pm
 lib/App/vaporcalc/Role/UI/PrepareCmd.pm
 lib/App/vaporcalc/Types.pm
-recipes/hypno.recipe
+recipes/base_reduce_100_48.recipe
+recipes/tfa_hpno.recipe
 t/00-report-prereqs.t
 t/lib/cmd/subject/flavor.t
 t/lib/cmd/subject/flavortype.t

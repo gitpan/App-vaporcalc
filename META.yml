@@ -23,4 +23,4 @@ requires:
   Throwable: 0.2
 resources:
   repository: git://github.com/avenj/app-vaporcalc.git
-version: 0.001003
+version: 0.001004

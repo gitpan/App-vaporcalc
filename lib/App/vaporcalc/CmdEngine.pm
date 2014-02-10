@@ -1,5 +1,5 @@
 package App::vaporcalc::CmdEngine;
-$App::vaporcalc::CmdEngine::VERSION = '0.001003';
+$App::vaporcalc::CmdEngine::VERSION = '0.001004';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 

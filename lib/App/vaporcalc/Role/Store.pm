@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::Store;
-$App::vaporcalc::Role::Store::VERSION = '0.001003';
+$App::vaporcalc::Role::Store::VERSION = '0.001004';
 use Defaults::Modern;
 
 use JSON::MaybeXS 1.001 ();
