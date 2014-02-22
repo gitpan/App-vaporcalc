@@ -29,14 +29,15 @@ my %WriteMakefileArgs = (
     "Term::ANSIColor" => 4,
     "Term::ReadLine" => 0,
     "Term::UI" => 0,
+    "Text::ParseWords" => 0,
     "Throwable" => "0.2"
   },
   "TEST_REQUIRES" => {
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.001004",
+  "VERSION" => "0.002001",
   "test" => {
-    "TESTS" => "t/*.t t/lib/*.t t/lib/cmd/subject/*.t t/role/*.t t/role/ui/*.t"
+    "TESTS" => "t/*.t t/lib/*.t t/lib/cmd/*.t t/lib/cmd/subject/*.t t/role/*.t t/role/ui/*.t"
   }
 );
 
@@ -49,6 +50,7 @@ my %FallbackPrereqs = (
   "Term::ReadLine" => 0,
   "Term::UI" => 0,
   "Test::More" => "0.88",
+  "Text::ParseWords" => 0,
   "Throwable" => "0.2"
 );
 

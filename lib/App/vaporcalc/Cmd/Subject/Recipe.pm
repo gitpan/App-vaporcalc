@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Recipe;
-$App::vaporcalc::Cmd::Subject::Recipe::VERSION = '0.001004';
+$App::vaporcalc::Cmd::Subject::Recipe::VERSION = '0.002001';
 use Defaults::Modern;
 
 use App::vaporcalc::RecipeResultSet;
@@ -13,8 +13,10 @@ has '+verb' => (
 
 method _action_show { $self->_action_view }
 method _action_view {
-  # Return a RecipeResultSet for frontend to format/display:
-  App::vaporcalc::RecipeResultSet->new(recipe => $self->recipe)
+  my $rset = App::vaporcalc::RecipeResultSet->new(recipe => $self->recipe);
+  # Force a calc now; easier to catch Result exceptions:
+  $rset->result;
+  $self->create_result(resultset => $rset)
 }
 
 method _action_save {
@@ -25,7 +27,7 @@ method _action_save {
     )
   }
   App::vaporcalc::RecipeResultSet->new(recipe => $self->recipe)->save($dest);
-  "Saved: $dest"
+  $self->create_result(string => "Saved: $dest")
 }
 
 method _action_load {
@@ -35,7 +37,8 @@ method _action_load {
       message => 'load requires a path'
     )
   }
-  App::vaporcalc::RecipeResultSet->load($src)->recipe
+  my $recipe = App::vaporcalc::RecipeResultSet->load($src)->recipe;
+  $self->create_result(recipe => $recipe)
 }
 
 1;

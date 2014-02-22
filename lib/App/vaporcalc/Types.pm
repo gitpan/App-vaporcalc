@@ -1,6 +1,8 @@
 package App::vaporcalc::Types;
-$App::vaporcalc::Types::VERSION = '0.001004';
+$App::vaporcalc::Types::VERSION = '0.002001';
 use strict; use warnings FATAL => 'all';
+
+use match::simple;
 
 use Type::Library   -base;
 use Types::Standard -types;
@@ -57,6 +59,17 @@ coerce ResultObject =>
   };
 
 
+declare FlavorObject =>
+  as InstanceOf['App::vaporcalc::Flavor'];
+
+coerce FlavorObject =>
+  from HashRef(),
+  via {
+    require App::vaporcalc::Flavor;
+    App::vaporcalc::Flavor->new(%$_)
+  };
+
+
 declare RecipeResultSet =>
   as InstanceOf['App::vaporcalc::RecipeResultSet'];
 
@@ -70,6 +83,22 @@ coerce VaporLiquid =>
   from Str(),
   via { uc $_ };
 
+
+declare CommandAction =>
+  as Str(),
+  where {
+    $_ |M| [qw/
+      display
+
+      print
+      prompt
+
+      next
+      last
+
+      recipe
+    /]
+  };
 
 1;
 
@@ -107,6 +136,12 @@ An L<App::vaporcalc::Exception> instance.
 
 Can be coerced from a C<Str>.
 
+=head3 FlavorObject
+
+An L<App::vaporcalc::Flavor> instance.
+
+Can be coerced from a C<HashRef>.
+
 =head3 RecipeObject
 
 An L<App::vaporcalc::Recipe> instance.
@@ -130,6 +165,12 @@ An L<App::vaporcalc::RecipeResultSet> instance.
 A valid base liquid type (B<PG> or B<VG>).
 
 Can be coerced from a lowercase string.
+
+=head3 CommandAction
+
+A valid C<vaporcalc> loop control action, one of:
+
+  display print prompt next last recipe
 
 =head1 AUTHOR
 

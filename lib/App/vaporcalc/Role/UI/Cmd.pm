@@ -1,10 +1,11 @@
 package App::vaporcalc::Role::UI::Cmd;
-$App::vaporcalc::Role::UI::Cmd::VERSION = '0.001004';
+$App::vaporcalc::Role::UI::Cmd::VERSION = '0.002001';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 
 use App::vaporcalc::Exception;
 use App::vaporcalc::Recipe;
+use App::vaporcalc::Cmd::Result;
 
 use Moo::Role; use MooX::late;
 
@@ -46,6 +47,10 @@ method execute {
 
 method throw_exception (@params) {
   App::vaporcalc::Exception->throw(@params)
+}
+
+method create_result (%params) {
+  App::vaporcalc::Cmd::Result->new(%params)
 }
 
 method munge_recipe (%params) {
@@ -110,6 +115,10 @@ a method named C<< _action_$verb >>  to call.
   );
 
 Throw an exception object.
+
+=head3 create_result
+
+Builds an L<App::vaporcalc::Cmd::Result> instance.
 
 =head3 munge_recipe
 

@@ -10,8 +10,8 @@ README.mkdn
 bin/vaporcalc
 dist.ini
 lib/App/vaporcalc.pm
+lib/App/vaporcalc/Cmd/Result.pm
 lib/App/vaporcalc/Cmd/Subject/Flavor.pm
-lib/App/vaporcalc/Cmd/Subject/FlavorType.pm
 lib/App/vaporcalc/Cmd/Subject/Help.pm
 lib/App/vaporcalc/Cmd/Subject/NicBase.pm
 lib/App/vaporcalc/Cmd/Subject/NicTarget.pm
@@ -23,6 +23,7 @@ lib/App/vaporcalc/Cmd/Subject/TargetAmount.pm
 lib/App/vaporcalc/Cmd/Subject/Vg.pm
 lib/App/vaporcalc/CmdEngine.pm
 lib/App/vaporcalc/Exception.pm
+lib/App/vaporcalc/Flavor.pm
 lib/App/vaporcalc/FormatString.pm
 lib/App/vaporcalc/Recipe.pm
 lib/App/vaporcalc/RecipeResultSet.pm
@@ -33,11 +34,18 @@ lib/App/vaporcalc/Role/UI/Cmd.pm
 lib/App/vaporcalc/Role/UI/ParseCmd.pm
 lib/App/vaporcalc/Role/UI/PrepareCmd.pm
 lib/App/vaporcalc/Types.pm
+local/PRINTME
+local/shoppinglist
 recipes/base_reduce_100_48.recipe
-recipes/tfa_hpno.recipe
+recipes/tfa_banana_cream-10ml-12mg.recipe
+recipes/tfa_blucottoncandy-10ml-12mg.recipe
+recipes/tfa_blurazz-10ml-12mg.recipe
+recipes/tfa_hpno-10ml-12mg.recipe
+recipes/tfa_raspberrymarshmallow-10ml-12mg.recipe
+recipes/tfa_tiramisu-10ml-12mg.recipe
 t/00-report-prereqs.t
+t/lib/cmd/result.t
 t/lib/cmd/subject/flavor.t
-t/lib/cmd/subject/flavortype.t
 t/lib/cmd/subject/help.t
 t/lib/cmd/subject/nicbase.t
 t/lib/cmd/subject/nictarget.t
@@ -49,6 +57,7 @@ t/lib/cmd/subject/targetamount.t
 t/lib/cmd/subject/vg.t
 t/lib/cmdengine.t
 t/lib/exception.t
+t/lib/flavor.t
 t/lib/formatstring.t
 t/lib/recipe.t
 t/lib/reciperesultset.t

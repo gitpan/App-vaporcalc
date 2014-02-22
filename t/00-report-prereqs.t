@@ -66,6 +66,7 @@ my $static_prereqs = do { my $x = {
                                       'Term::ANSIColor' => '4',
                                       'Term::ReadLine' => '0',
                                       'Term::UI' => '0',
+                                      'Text::ParseWords' => '0',
                                       'Throwable' => '0.2'
                                     }
                     },

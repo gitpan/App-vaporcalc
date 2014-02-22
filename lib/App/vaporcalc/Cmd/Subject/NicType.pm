@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::NicType;
-$App::vaporcalc::Cmd::Subject::NicType::VERSION = '0.001004';
+$App::vaporcalc::Cmd::Subject::NicType::VERSION = '0.002001';
 use Defaults::Modern;
 
 use Moo; use MooX::late;
@@ -12,7 +12,9 @@ has '+verb' => (
 method _action_show { $self->_action_view }
 method _action_view {
   my $type = $self->recipe->base_nic_type;
-  " -> Nic type: $type"
+  $self->create_result(
+    string => " -> Nic type: $type"
+  )
 }
 
 method _action_set {
@@ -21,8 +23,11 @@ method _action_set {
     message => 'set requires a parameter'
   ) unless defined $new_nic;
 
-  $self->munge_recipe(
+  my $recipe = $self->munge_recipe(
     base_nic_type => $new_nic
+  );
+  $self->create_result(
+    recipe => $recipe,
   )
 }
 

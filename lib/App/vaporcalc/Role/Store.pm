@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::Store;
-$App::vaporcalc::Role::Store::VERSION = '0.001004';
+$App::vaporcalc::Role::Store::VERSION = '0.002001';
 use Defaults::Modern;
 
 use JSON::MaybeXS 1.001 ();
@@ -31,7 +31,10 @@ method load ( (Str | Path) $path ) {
   unless ($data) {
     confess "Could not decode JSON: ".$jseng->error
   }
+  $self->_load_create_obj($data)
+}
 
+method _load_create_obj ($data) {
   (blessed $self || $self)->new(%$data)
 }
 

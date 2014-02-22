@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Help;
-$App::vaporcalc::Cmd::Subject::Help::VERSION = '0.001004';
+$App::vaporcalc::Cmd::Subject::Help::VERSION = '0.002001';
 use Defaults::Modern;
 
 use Moo; use MooX::late;
@@ -16,16 +16,16 @@ has '+verb' => (
 method _action_view { $self->_action_show }
 method _action_show {
   my $topic = $self->params->get(0);
+  my $str;
   unless ($topic) {
-    return join "\n",
+    $str = join "\n",
       "Commands can be entered as:",
       " [ <VERB> <SUBJECT> <PARAM> ] or [ <SUBJECT> <VERB> <PARAM> ]",
       " e.g.:  set nic base 100",
       "(Without a verb, most subjects will call 'show')",
       " recipe <view/save [PATH]/load [PATH]>",
       " target amount <view/set [ml]>",
-      " flavor <view/set [% of total]>", 
-      " flavor type <view/set [PG/VG]>",
+      " flavor <view/set [tag] [% of total] [PG/VG]/del [tag]>",
       " nic base <view/set [mg/ml]>",
       " nic target <view/set [mg/ml]>", 
       " nic type <view/set [PG/VG]>",
@@ -33,15 +33,10 @@ method _action_show {
       " vg <view/set [% of total]>",
       " notes <view/clear/add [STR]/del [IDX]>"
   }
-
-  # FIXME
-  # Not using currently, better if we dispatch to individual cmds:
-  my $meth = '_help_'.$topic;
-  if ($self->can($meth)) {
-    return $self->$meth
-  }
-  
-  "No help found for '$topic'"
+ 
+  $self->create_result(
+    string => ($str || "No help found for '$topic'")
+  )
 }
 
 1;

@@ -17,8 +17,8 @@ use Test::NoTabs;
 my @files = (
     'bin/vaporcalc',
     'lib/App/vaporcalc.pm',
+    'lib/App/vaporcalc/Cmd/Result.pm',
     'lib/App/vaporcalc/Cmd/Subject/Flavor.pm',
-    'lib/App/vaporcalc/Cmd/Subject/FlavorType.pm',
     'lib/App/vaporcalc/Cmd/Subject/Help.pm',
     'lib/App/vaporcalc/Cmd/Subject/NicBase.pm',
     'lib/App/vaporcalc/Cmd/Subject/NicTarget.pm',
@@ -30,6 +30,7 @@ my @files = (
     'lib/App/vaporcalc/Cmd/Subject/Vg.pm',
     'lib/App/vaporcalc/CmdEngine.pm',
     'lib/App/vaporcalc/Exception.pm',
+    'lib/App/vaporcalc/Flavor.pm',
     'lib/App/vaporcalc/FormatString.pm',
     'lib/App/vaporcalc/Recipe.pm',
     'lib/App/vaporcalc/RecipeResultSet.pm',

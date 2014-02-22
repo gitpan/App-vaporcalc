@@ -20,7 +20,8 @@ requires:
   Term::ANSIColor: 4
   Term::ReadLine: 0
   Term::UI: 0
+  Text::ParseWords: 0
   Throwable: 0.2
 resources:
   repository: git://github.com/avenj/app-vaporcalc.git
-version: 0.001004
+version: 0.002001

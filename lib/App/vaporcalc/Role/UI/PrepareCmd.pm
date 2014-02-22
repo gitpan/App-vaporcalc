@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::UI::PrepareCmd;
-$App::vaporcalc::Role::UI::PrepareCmd::VERSION = '0.001004';
+$App::vaporcalc::Role::UI::PrepareCmd::VERSION = '0.002001';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 
@@ -16,7 +16,7 @@ has cmd_class_prefix => (
 
 method prepare_cmd (
   Str           :$subject,
-  (Str | Undef) :$verb = undef,
+  (Str | Undef) :$verb   = undef,
   ArrayObj      :$params = array(),
   RecipeObject  :$recipe,
 ) {
