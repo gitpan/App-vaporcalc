@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::UI::ParseCmd;
-$App::vaporcalc::Role::UI::ParseCmd::VERSION = '0.002001';
+$App::vaporcalc::Role::UI::ParseCmd::VERSION = '0.002002';
 use Defaults::Modern;
 
 use App::vaporcalc::Exception;

@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Flavor;
-$App::vaporcalc::Cmd::Subject::Flavor::VERSION = '0.002001';
+$App::vaporcalc::Cmd::Subject::Flavor::VERSION = '0.002002';
 use Defaults::Modern;
 
 use App::vaporcalc::Flavor;
@@ -92,6 +92,11 @@ method _action_del {
   my $recipe = $self->munge_recipe(
     flavor_array => $flavors,
   );
+  $self->create_result(recipe => $recipe)
+}
+
+method _action_clear {
+  my $recipe = $self->munge_recipe(flavor_array => array);
   $self->create_result(recipe => $recipe)
 }
 

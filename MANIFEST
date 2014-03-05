@@ -37,11 +37,13 @@ lib/App/vaporcalc/Types.pm
 local/PRINTME
 local/shoppinglist
 recipes/base_reduce_100_48.recipe
-recipes/tfa_banana_cream-10ml-12mg.recipe
+recipes/tfa_bananasmoothie-10ml-12mg.recipe
 recipes/tfa_blucottoncandy-10ml-12mg.recipe
 recipes/tfa_blurazz-10ml-12mg.recipe
 recipes/tfa_hpno-10ml-12mg.recipe
 recipes/tfa_raspberrymarshmallow-10ml-12mg.recipe
+recipes/tfa_strawban-10ml-12mg.recipe
+recipes/tfa_strawberrykiwi-10ml-12mg.recipe
 recipes/tfa_tiramisu-10ml-12mg.recipe
 t/00-report-prereqs.t
 t/lib/cmd/result.t

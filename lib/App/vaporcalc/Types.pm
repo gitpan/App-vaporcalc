@@ -1,5 +1,5 @@
 package App::vaporcalc::Types;
-$App::vaporcalc::Types::VERSION = '0.002001';
+$App::vaporcalc::Types::VERSION = '0.002002';
 use strict; use warnings FATAL => 'all';
 
 use match::simple;
@@ -12,7 +12,7 @@ use Type::Utils     -all;
 # Numbers
 
 declare Percentage =>
-  as Int(),
+  as StrictNum(),
   where { $_ > -1 && $_ <= 100 };
 
 

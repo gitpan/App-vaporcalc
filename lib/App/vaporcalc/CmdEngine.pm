@@ -1,5 +1,5 @@
 package App::vaporcalc::CmdEngine;
-$App::vaporcalc::CmdEngine::VERSION = '0.002001';
+$App::vaporcalc::CmdEngine::VERSION = '0.002002';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 
@@ -15,7 +15,6 @@ has subject_list => (
       'recipe',
       'target amount',
       'flavor',
-      'flavor type',
       'nic base',
       'nic target',
       'nic type',

@@ -1,5 +1,5 @@
 package App::vaporcalc::RecipeResultSet;
-$App::vaporcalc::RecipeResultSet::VERSION = '0.002001';
+$App::vaporcalc::RecipeResultSet::VERSION = '0.002002';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 
@@ -20,7 +20,7 @@ has result => (
   isa      => ResultObject,
   coerce   => 1,
   writer   => '_set_result',
-  builder  => sub { $_[0]->recipe->calc },
+  builder  => sub { shift->recipe->calc },
 );
 
 method TO_JSON {
@@ -66,6 +66,8 @@ options.
 Automatically created from the current L</recipe> object.
 
 =head2 CONSUMES
+
+L<App::vaporcalc::Role::Store>
 
 =head1 AUTHOR
 
