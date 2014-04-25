@@ -9,7 +9,7 @@ BEGIN {
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.06
+# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.07
 
 use Test::More 0.88;
 use Test::NoTabs;
@@ -40,7 +40,41 @@ my @files = (
     'lib/App/vaporcalc/Role/UI/Cmd.pm',
     'lib/App/vaporcalc/Role/UI/ParseCmd.pm',
     'lib/App/vaporcalc/Role/UI/PrepareCmd.pm',
-    'lib/App/vaporcalc/Types.pm'
+    'lib/App/vaporcalc/Types.pm',
+    't/00-report-prereqs.t',
+    't/lib/cmd/result.t',
+    't/lib/cmd/subject/flavor.t',
+    't/lib/cmd/subject/help.t',
+    't/lib/cmd/subject/nicbase.t',
+    't/lib/cmd/subject/nictarget.t',
+    't/lib/cmd/subject/nictype.t',
+    't/lib/cmd/subject/notes.t',
+    't/lib/cmd/subject/pg.t',
+    't/lib/cmd/subject/recipe.t',
+    't/lib/cmd/subject/targetamount.t',
+    't/lib/cmd/subject/vg.t',
+    't/lib/cmdengine.t',
+    't/lib/exception.t',
+    't/lib/flavor.t',
+    't/lib/formatstring.t',
+    't/lib/recipe.t',
+    't/lib/reciperesultset.t',
+    't/lib/result.t',
+    't/lib/types.t',
+    't/lib/vaporcalc.t',
+    't/release-cpan-changes.t',
+    't/release-dist-manifest.t',
+    't/release-no-tabs.t',
+    't/release-pod-coverage.t',
+    't/release-pod-linkcheck.t',
+    't/release-pod-syntax.t',
+    't/release-synopsis.t',
+    't/release-unused-vars.t',
+    't/role/calc.pm',
+    't/role/store.t',
+    't/role/ui/cmd.t',
+    't/role/ui/parsecmd.t',
+    't/role/ui/preparecmd.t'
 );
 
 notabs_ok($_) foreach @files;

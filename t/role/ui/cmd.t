@@ -1,5 +1,4 @@
-use Test::More;
-use strict; use warnings FATAL => 'all';
+use Test::Modern;
 
 { package
     MyCmd;
@@ -36,12 +35,14 @@ my $new_recipe = $cmd->munge_recipe(target_pg => 50, target_vg => 50);
 ok $new_recipe->target_vg == 50 && $new_recipe->target_quantity == 30,
   'munge_recipe ok';
 
-eval {; $cmd->throw_exception('foo') };
-isa_ok $@, 'App::vaporcalc::Exception';
-ok $@->message eq 'foo', 'throw_exception ok';
-
-eval {; MyCmd->new };
-ok $@, 'missing recipe dies ok';
-
+{
+  my $died = exception {; $cmd->throw_exception('foo') };
+  isa_ok $died, 'App::vaporcalc::Exception';
+  ok $died->message eq 'foo', 'throw_exception ok';
+}
+{
+  my $died = exception {; MyCmd->new };
+  ok $died, 'missing recipe dies ok';
+}
 
 done_testing

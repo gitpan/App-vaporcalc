@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Pg;
-$App::vaporcalc::Cmd::Subject::Pg::VERSION = '0.002002';
+$App::vaporcalc::Cmd::Subject::Pg::VERSION = '0.003001';
 use Defaults::Modern;
 
 use Moo; use MooX::late;

@@ -3,13 +3,13 @@
       "flavor_array" : [
          {
             "type" : "PG",
-            "tag" : "TFA Blueberry (extra)",
-            "percentage" : "4"
+            "tag" : "TFA Circus Cotton Candy",
+            "percentage" : "10"
          },
          {
             "type" : "PG",
-            "tag" : "TFA Circus Cotton Candy",
-            "percentage" : "10"
+            "tag" : "TFA Raspberry (sweet)",
+            "percentage" : "4"
          }
       ],
       "target_pg" : "50",

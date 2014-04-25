@@ -3,8 +3,8 @@
       "flavor_array" : [
          {
             "type" : "PG",
-            "tag" : "TFA HPNO",
-            "percentage" : "12"
+            "tag" : "TFA Dbl Kiwi",
+            "percentage" : "8"
          }
       ],
       "target_pg" : "50",
@@ -12,11 +12,7 @@
       "base_nic_type" : "PG",
       "target_quantity" : "10",
       "target_nic_per_ml" : "12",
-      "target_vg" : 50,
-      "notes" : [
-         "TFA HPNO (Hypnotica), adjust from 5-12%",
-         "This one is current top of my list.",
-         "(Jon)"
-      ]
+      "target_vg" : "50",
+      "notes" : []
    }
 }

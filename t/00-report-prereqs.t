@@ -76,7 +76,7 @@ my $static_prereqs = do { my $x = {
                                      'CPAN::Meta::Requirements' => '2.120900'
                                    },
                    'requires' => {
-                                   'Test::More' => '0.88'
+                                   'Test::Modern' => '0.002'
                                  }
                  }
      };
