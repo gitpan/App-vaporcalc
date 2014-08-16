@@ -1,5 +1,5 @@
 package App::vaporcalc::Cmd::Subject::Recipe;
-$App::vaporcalc::Cmd::Subject::Recipe::VERSION = '0.003001';
+$App::vaporcalc::Cmd::Subject::Recipe::VERSION = '0.003002';
 use Defaults::Modern;
 
 use App::vaporcalc::RecipeResultSet;

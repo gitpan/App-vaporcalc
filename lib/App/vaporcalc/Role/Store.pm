@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::Store;
-$App::vaporcalc::Role::Store::VERSION = '0.003001';
+$App::vaporcalc::Role::Store::VERSION = '0.003002';
 use Defaults::Modern;
 
 use JSON::MaybeXS 1.001 ();
@@ -10,8 +10,8 @@ requires 'TO_JSON';
 
 method save ( (Str | Path) $path ) {
   my $jseng = JSON::MaybeXS->new(
-    utf8   => 1,
-    pretty => 1,
+    utf8            => 1,
+    pretty          => 1,
     allow_blessed   => 1,
     convert_blessed => 1,
   );
@@ -26,7 +26,11 @@ method save ( (Str | Path) $path ) {
 
 method load ( (Str | Path) $path ) {
   my $json  = path($path)->slurp_utf8;
-  my $jseng = JSON::MaybeXS->new(utf8 => 1);
+  my $jseng = JSON::MaybeXS->new(
+    utf8      => 1,
+    relaxed   => 1,
+  );
+
   my $data  = $jseng->decode($json);
   unless ($data) {
     confess "Could not decode JSON: ".$jseng->error

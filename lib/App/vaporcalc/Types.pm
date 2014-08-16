@@ -1,5 +1,5 @@
 package App::vaporcalc::Types;
-$App::vaporcalc::Types::VERSION = '0.003001';
+$App::vaporcalc::Types::VERSION = '0.003002';
 use strict; use warnings FATAL => 'all';
 
 use match::simple;

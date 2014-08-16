@@ -1,5 +1,5 @@
 package App::vaporcalc;
-$App::vaporcalc::VERSION = '0.003001';
+$App::vaporcalc::VERSION = '0.003002';
 use Defaults::Modern;
 
 use App::vaporcalc::Recipe;

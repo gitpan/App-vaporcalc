@@ -1,5 +1,5 @@
 package App::vaporcalc::Role::UI::Cmd;
-$App::vaporcalc::Role::UI::Cmd::VERSION = '0.003001';
+$App::vaporcalc::Role::UI::Cmd::VERSION = '0.003002';
 use Defaults::Modern
   -with_types => [ 'App::vaporcalc::Types' ];
 

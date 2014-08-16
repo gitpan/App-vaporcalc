@@ -9,7 +9,7 @@ BEGIN {
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.07
+# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.08
 
 use Test::More 0.88;
 use Test::NoTabs;
@@ -41,6 +41,7 @@ my @files = (
     'lib/App/vaporcalc/Role/UI/ParseCmd.pm',
     'lib/App/vaporcalc/Role/UI/PrepareCmd.pm',
     'lib/App/vaporcalc/Types.pm',
+    't/00-report-prereqs.dd',
     't/00-report-prereqs.t',
     't/lib/cmd/result.t',
     't/lib/cmd/subject/flavor.t',

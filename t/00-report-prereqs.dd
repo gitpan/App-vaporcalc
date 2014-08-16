@@ -1,0 +1,47 @@
+do { my $x = {
+       'configure' => {
+                        'requires' => {
+                                        'ExtUtils::MakeMaker' => '0'
+                                      }
+                      },
+       'develop' => {
+                      'requires' => {
+                                      'Pod::Coverage::TrustPod' => '0',
+                                      'Test::CPAN::Changes' => '0.19',
+                                      'Test::More' => '0',
+                                      'Test::NoTabs' => '0',
+                                      'Test::Pod' => '1.41',
+                                      'Test::Pod::Coverage' => '1.08'
+                                    }
+                    },
+       'runtime' => {
+                      'requires' => {
+                                      'Defaults::Modern' => '0.007',
+                                      'Exporter::Tiny' => '0',
+                                      'JSON::MaybeXS' => '1.001',
+                                      'Term::ANSIColor' => '4',
+                                      'Term::ReadLine' => '0',
+                                      'Term::UI' => '0',
+                                      'Text::ParseWords' => '0',
+                                      'Throwable' => '0.2'
+                                    }
+                    },
+       'test' => {
+                   'recommends' => {
+                                     'CPAN::Meta' => '0',
+                                     'CPAN::Meta::Prereqs' => '0',
+                                     'CPAN::Meta::Requirements' => '2.120900'
+                                   },
+                   'requires' => {
+                                   'ExtUtils::MakeMaker' => '0',
+                                   'File::Spec' => '0',
+                                   'List::Util' => '0',
+                                   'Scalar::Util' => '0',
+                                   'Test::Modern' => '0.002',
+                                   'Test::More' => '0',
+                                   'version' => '0.77'
+                                 }
+                 }
+     };
+  $x;
+ }
